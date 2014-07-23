@@ -1,6 +1,7 @@
 <?php
 /*
  * Plugin Name: GSY Easy Banners
+ * Plugin URI: https://github.com/georgi-yankov/gsy-easy-banners
  * Description: This plugin provides an easy way to add banners
  * Version: 1.0
  * Author: Georgi Yankov
