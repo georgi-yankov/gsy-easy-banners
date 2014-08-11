@@ -23,13 +23,15 @@
  * 
  * Simple working example:
  *  <?php
-    query_posts(array(
+    $args = array(
         'post_type' => 'gsy_banners',
         'orderby' => 'menu_order',
         'order' => 'ASC',
-    ));
+    );
+
+    $the_query = new WP_Query($args);
     ?>
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
             <?php if (( has_post_thumbnail() ) AND ( get_post_meta($post->ID, 'gsy_banner_meta_box_text', true) )) : ?>
                 <div class="banner">
                     <a href="<?php echo get_post_meta($post->ID, 'gsy_banner_meta_box_text', true) ?>" title="<?php the_title(); ?>">
@@ -39,7 +41,7 @@
             <?php endif; ?>
         <?php endwhile;
     endif; ?>
-    <?php wp_reset_query(); ?>
+    <?php wp_reset_postdata(); ?>
  */
 
 /* =============================================================================
